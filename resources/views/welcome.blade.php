@@ -9,7 +9,7 @@
          header { text-align: center;}
          header h1 {text-align: center;font-weight: bolder;font-size: 3.5rem;letter-spacing: .2rem;margin-top: 0;}
          header h2 {text-align: center;font-size: 2.4rem;margin-top: 0;}
-         header :nth-last-child(2) {background-color: red;color: white;display: inline-block;padding: .2rem;}
+         .highlight {background-color: red;color: white;display: inline-block;padding: .2rem;}
          .header-logo {padding: 10px;width: 100px;}
          .wrapper {width: 500px;margin: 0 auto;}
          .red-col{color: red;}
@@ -23,8 +23,8 @@
                </div>
             <header>
                 <h1>Super Champ Competition</h1>
-                <h2>Shikshit Jiavn Surakshit Jiavn Society, Hisar <span>(Reg No.01676)</span> </h2>
-                <h2>M. 7988223255, 9050851556, 9728810110</h2>
+                <h2 class="highlight" >Shikshit Jiavn Surakshit Jiavn Society, Hisar <span>(Reg No.01676)</span> </h2>
+                <h2>M. 7988223255, 9050851556, 9728810110  ( <a href="{{ route('contact.us') }}" >Contact Us</a> / <a href="{{ route('terms.policies') }}" >Terms & Policies</a> )</h2>
             </header>
          </div>
          <!-- /.container-fluid -->

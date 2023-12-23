@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\FeeController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,9 @@ use App\Http\Controllers\FeeController;
 Route::get('/', function () { return view('welcome');
 })->name('home');
 
-
+Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact.us');
+Route::post('/contact-us', [FrontendController::class, 'save'])->name('contact.save');
+Route::get('/terms/policies', [FrontendController::class, 'termsPolicies'])->name('terms.policies');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
