@@ -40,7 +40,7 @@
             <header>
                 <h1>Super Champ Competition</h1>
                 <h2 class="highlight" >Shikshit Jiavn Surakshit Jiavn Society, Hisar <span>(Reg No.01676)</span> </h2>
-                <h2>M. 7988223255, 9050851556, 9728810110  ( <a href="{{ route('contact.us') }}" >Contact Us</a> / <a href="{{ route('terms.policies') }}" >Terms & Policies</a> / <a href="{{ route('payment.status') }}" >Payment Status</a> )</h2>
+                <h2>M. 7988223255, 9050851556, 9728810110  ( <a href="{{ route('contact.us') }}" >Contact Us</a> / <a href="{{ route('terms.policies') }}" >Terms & Policies</a> / <a href="{{ route('home') }}" >Back To Form</a> )</h2>
             </header>
          </div>
          <!-- /.container-fluid -->
