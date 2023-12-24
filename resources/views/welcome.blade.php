@@ -66,43 +66,43 @@
                      <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
                         <div class="form-group">
                            <label for="father_husband_name">Father's/Husband's Name</label>
-                           <input type="text" value="{{ old('last_name') }}" class="form-control" name="father_husband_name" id="father_husband_name" placeholder="Father's/Husband's Name">
+                           <input type="text" value="{{ old('father_husband_name') }}" class="form-control" name="father_husband_name" id="father_husband_name" placeholder="Father's/Husband's Name">
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
                         <div class="form-group">
                            <label for="mother_name">Mother Name</label>
-                           <input type="text" value="{{ old('last_name') }}" class="form-control" name="mother_name" id="mother_name" placeholder="Mother Name">
+                           <input type="text" value="{{ old('mother_name') }}" class="form-control" name="mother_name" id="mother_name" placeholder="Mother Name">
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-3 col-xs-12 col-sm-6">
                         <div class="form-group">
                            <label for="date_of_birth">Date of Birth</label>
-                           <input type="date" value="{{ old('last_name') }}" class="form-control" id="date_of_birth" value="{{ old('date_of_birth') }}" >
+                           <input type="date" value="{{ old('date_of_birth') }}" class="form-control" id="date_of_birth" value="{{ old('date_of_birth') }}" >
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-3 col-xs-12 col-sm-6">
                         <div class="form-group">
                            <label for="whatsapp_number">Whatsapp Number <span class="red-col" >*</span></label>
-                           <input type="number" value="{{ old('last_name') }}" class="form-control" name="whatsapp_number" id="whatsapp_number" placeholder="Whatsapp number">
+                           <input type="number" value="{{ old('whatsapp_number') }}" class="form-control" name="whatsapp_number" id="whatsapp_number" placeholder="Whatsapp number">
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-6 col-xs-12">
                         <div class="form-group">
                            <label for="email">Email Address <span class="red-col" >*</span></label>
-                           <input type="email" value="{{ old('last_name') }}" class="form-control" id="email" name="email" placeholder="Email Address">
+                           <input type="email" value="{{ old('email') }}" class="form-control" id="email" name="email" placeholder="Email Address">
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
                         <div class="form-group">
                            <label for="mobile_number">Mobile Number <span class="red-col" >*</span></label>
-                           <input type="tel" value="{{ old('last_name') }}" class="form-control" name="mobile_number" id="mobile_number" placeholder="(916) 345-6783">
+                           <input type="tel" value="{{ old('mobile_number') }}" class="form-control" name="mobile_number" id="mobile_number" placeholder="(916) 345-6783">
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
                         <div class="form-group">
                            <label for="second_mobile_number">Other Contact Number</label>
-                           <input type="tel" value="{{ old('last_name') }}" class="form-control" name="second_mobile_number" id="second_mobile_number" placeholder="(916) 345-0000 x123">
+                           <input type="tel" value="{{ old('second_mobile_number') }}" class="form-control" name="second_mobile_number" id="second_mobile_number" placeholder="(916) 345-0000 x123">
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-2 col-xs-12 col-sm-6">
@@ -122,7 +122,7 @@
                      <div class="col-lg-offset-0 col-lg-4 col-xs-12 col-sm-12">
                         <div class="form-group">
                            <label for="other_education">Other Education</label>
-                           <input disabled value="{{ old('last_name') }}" type="text" class="form-control" id="other_education" name="other_education" placeholder="Other Education">
+                           <input disabled value="{{ old('other_education') }}" type="text" class="form-control" id="other_education" name="other_education" placeholder="Other Education">
                         </div>
                      </div>
 
@@ -157,13 +157,13 @@
                      <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-12">
                         <div class="form-group">
                            <label for="father_occupation">Father Occupation</label>
-                           <input type="text" value="{{ old('last_name') }}" class="form-control" id="father_occupation" name="father_occupation" placeholder="Father Occupation">
+                           <input type="text" value="{{ old('father_occupation') }}" class="form-control" id="father_occupation" name="father_occupation" placeholder="Father Occupation">
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-12">
                         <div class="form-group">
                            <label for="aadhar_number">Aadhar Number</label>
-                           <input type="aadhar_number" value="{{ old('last_name') }}" class="form-control" id="aadhar_number" name="aadhar_number" placeholder="Aadhar Number">
+                           <input type="aadhar_number" value="{{ old('aadhar_number') }}" class="form-control" id="aadhar_number" name="aadhar_number" placeholder="Aadhar Number">
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-12 col-xs-12"> 
@@ -174,31 +174,31 @@
                      <div class="col-lg-offset-0 col-lg-12 col-xs-12 col-sm-12">
                         <div class="form-group">
                            <label for="village_address">Village Address <span class="red-col" >*</span></label>
-                           <textarea name="village_address" class="form-control" id="village_address" cols="30" rows="3"></textarea>
+                           <textarea name="village_address" class="form-control" id="village_address" cols="30" rows="3">{{ old('village_address') }}</textarea>
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-12 col-xs-12 col-sm-12">
                         <div class="form-group">
                            <label for="post_office">Post office & Tehsil</label>
-                           <textarea name="post_office" class="form-control" id="post_office" cols="30" rows="3"></textarea>
+                           <textarea name="post_office" class="form-control" id="post_office" cols="30" rows="3">{{ old('post_office') }}</textarea>
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-4 col-xs-12 col-sm-6">
                         <div class="form-group">
                            <label for="district" name="district" class="select">District</label>
-                           <input type="text" value="{{ old('last_name') }}" class="form-control" id="district" name="district" placeholder="District">
+                           <input type="text" value="{{ old('district') }}" class="form-control" id="district" name="district" placeholder="District">
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-4 col-xs-12 col-sm-6">
                         <div class="form-group">
                            <label for="pin_code">Pin Code</label>
-                           <input type="text" value="{{ old('last_name') }}" class="form-control" id="pin_code" name="pin_code" placeholder="Pin Code">
+                           <input type="text" value="{{ old('pin_code') }}" class="form-control" id="pin_code" name="pin_code" placeholder="Pin Code">
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-4 col-xs-12 col-sm-6">
                         <div class="form-group">
                            <label for="state">State</label>
-                           <input type="text" value="{{ old('last_name') }}" class="form-control" id="state" name="state" placeholder="State">
+                           <input type="text" value="{{ old('state') }}" class="form-control" id="state" name="state" placeholder="State">
                         </div>
                      </div>
                      <div class="bg-warning col-lg-offset-0 col-lg-12 col-xs-12">
