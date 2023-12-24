@@ -13,9 +13,11 @@
          .header-logo {padding: 10px;width: 100px;}
          .wrapper {width: 500px;margin: 0 auto;}
          .red-col{color: red;}
+         .form-bg { background-color : #fef3c7 }
+         /* background-color : rgba(254,243,199,var(--tw-bg-opacity)) */
       </style>
    </head>
-   <body>
+   <body class="form-bg" >
       <nav class="navbar navbar-default">
          <div class="container-fluid">
                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">        
@@ -29,11 +31,11 @@
          </div>
          <!-- /.container-fluid -->
       </nav>
-      <div class="container">
+      <div class="container ">
         <div class="col-lg-12 col-md-12 ">
             
         </div>
-         <div class="row">
+         <div class="row ">
             <!-- Main Content -->
             <div class="col-xs-12 col-lg-12 col-sm-12 col-md-12">
 
@@ -209,12 +211,6 @@
                            </label>
                         </div>
                      </div>
-                     <!-- <div class="col-lg-offset-0 col-lg-12 col-xs-12"> 
-                        <br><br>
-                          <span class="glyphicon glyphicon-info-sign"></span>               
-                            If you are an adult victim and the expenses are for you, skip to <a href="vcp-application-4.html">Section 4</a>. If not, Continue to Section 2
-                        </div>
-                        -->
                   </div>
                   <hr>
                   <div class="pull-right">
@@ -222,8 +218,7 @@
                   </div>
                </form>
             </div>
-            <!-- /Main Content -->
-            <br />
+            
             <br />
          </div>
          <br />
@@ -233,7 +228,7 @@
          <div class="row">
             <div class="text-center col-md-6 col-md-offset-3">
                <h4>Super Champ Competiotion</h4>
-               <p>Copyright &copy; 2022 &middot; All Rights Reserved &middot; <a href="https://sjsjsocity.in/">sjsjsocity.in</a></p>
+               <p>Copyright &copy; 2022 &middot; All Rights Reserved &middot; <a href="{{ route('home') }}">sjsjsocity.in</a></p>
             </div>
          </div>
          <hr>
