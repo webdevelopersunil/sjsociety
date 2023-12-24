@@ -63,6 +63,7 @@ class FormController extends Controller
             $form->second_mobile_number =   $request->second_mobile_number;
             $form->qualification        =   $request->qualification;
             $form->gender               =   $request->gender;
+            $form->other_education      =   $request->other_education;
             $form->nationality          =   $request->nationality;
             $form->father_occupation    =   $request->father_occupation;
             $form->aadhar_number        =   $request->aadhar_number;

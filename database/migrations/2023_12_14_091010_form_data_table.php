@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('mobile_number')->unique();
             $table->string('second_mobile_number')->nullable();
-            $table->string('qualification')->nullable();
+            $table->string('qualification');
+            $table->string('other_education')->nullable();
             $table->string('gender');
             $table->string('nationality')->nullable();
             $table->string('father_occupation')->nullable();

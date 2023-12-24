@@ -29,6 +29,7 @@ class Form extends Model
         'aadhar_number',
         'second_mobile_number',
         'qualification',
+        'other_education',
         'gender',
         'nationality',
         'father_occupation',
