@@ -26,6 +26,8 @@ Route::get('product',[RazorpayController::class,'index']);
 Route::post('razorpay-payment',[RazorpayController::class,'store'])->name('razorpay.payment.store');
 
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact.us');
+Route::get('/payment/status', [FrontendController::class, 'paymentStatus'])->name('payment.status');
+Route::post('/payment/data', [FrontendController::class, 'paymentData'])->name('payment.data');
 Route::post('/contact-us', [FrontendController::class, 'save'])->name('contact.save');
 Route::get('/terms/policies', [FrontendController::class, 'termsPolicies'])->name('terms.policies');
 

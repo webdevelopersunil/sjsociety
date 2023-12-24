@@ -14,7 +14,6 @@
          .wrapper {width: 500px;margin: 0 auto;}
          .red-col{color: red;}
          .form-bg { background-color : #fef3c7 }
-         /* background-color : rgba(254,243,199,var(--tw-bg-opacity)) */
       </style>
    </head>
    <body class="form-bg" >
@@ -26,7 +25,7 @@
             <header>
                 <h1>Super Champ Competition</h1>
                 <h2 class="highlight" >Shikshit Jiavn Surakshit Jiavn Society, Hisar <span>(Reg No.01676)</span> </h2>
-                <h2>M. 7988223255, 9050851556, 9728810110  ( <a href="{{ route('contact.us') }}" >Contact Us</a> / <a href="{{ route('terms.policies') }}" >Terms & Policies</a> )</h2>
+                <h2>M. 7988223255, 9050851556, 9728810110  ( <a href="{{ route('contact.us') }}" >Contact Us</a> / <a href="{{ route('terms.policies') }}" >Terms & Policies</a> / <a href="{{ route('payment.status') }}" >Payment Status</a> )</h2>
             </header>
          </div>
          <!-- /.container-fluid -->
