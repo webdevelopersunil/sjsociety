@@ -6,6 +6,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\RazorpayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ use App\Http\Controllers\FrontendController;
 
 Route::get('/', function () { return view('welcome');
 })->name('home');
+
+Route::get('product',[RazorpayController::class,'index']);
+Route::post('razorpay-payment',[RazorpayController::class,'store'])->name('razorpay.payment.store');
 
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact.us');
 Route::post('/contact-us', [FrontendController::class, 'save'])->name('contact.save');
