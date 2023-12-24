@@ -6,29 +6,17 @@
       <title>Document</title>
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
       <style>
-         header { text-align: center;}
-         header h1 {text-align: center;font-weight: bolder;font-size: 3.5rem;letter-spacing: .2rem;margin-top: 0;}
-         header h2 {text-align: center;font-size: 2.4rem;margin-top: 0;}
-         .highlight {background-color: red;color: white;display: inline-block;padding: .2rem;}
-         .header-logo {padding: 10px;width: 100px;}
-         .wrapper {width: 500px;margin: 0 auto;}
-         .red-col{color: red;}
-         .form-bg { background-color : #fef3c7 }
-         table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
+        header { text-align: center;}
+        header h1 {text-align: center;font-weight: bolder;font-size: 3.5rem;letter-spacing: .2rem;margin-top: 0;}
+        header h2 {text-align: center;font-size: 2.4rem;margin-top: 0;}
+        .highlight {background-color: red;color: white;display: inline-block;padding: .2rem;}
+        .header-logo {padding: 10px;width: 100px;}
+        .wrapper {width: 500px;margin: 0 auto;}
+        .red-col{color: red;}
+        .form-bg { background-color : #fef3c7 }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+        th { background-color: #f2f2f2; }
       </style>
    </head>
    <body class="form-bg" >
