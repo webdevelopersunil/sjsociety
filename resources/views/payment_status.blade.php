@@ -172,7 +172,7 @@
                      <!-- Add more rows as needed -->
                   </tbody>
                </table>
-               @if( isset($candidate->payment_status) )
+               @if( isset($candidate->payment_status) && $candidate->payment_status == 0 )
                   <div class="card card-default">
                      <div class="card-body text-center">
                         <form id="paymentForm" action="{{ route('razorpay.payment.store',$uid) }}" method="POST" >

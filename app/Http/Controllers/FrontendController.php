@@ -6,8 +6,15 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Form;
+use App\Models\Fee;
 
 class FrontendController extends Controller{
+
+    public function home(){
+
+        $fees   =   Fee::where('status',1)->where('class','!=','others')->get();
+        return view('welcome',compact('fees'));
+    }
 
     public function paymentStatus(){
 

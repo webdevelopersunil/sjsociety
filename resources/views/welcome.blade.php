@@ -77,10 +77,11 @@
                         </div>
                      </div>
                      <div class="col-lg-offset-0 col-lg-3 col-xs-12 col-sm-6">
-                        <div class="form-group">
-                           <label for="date_of_birth">Date of Birth</label>
-                           <input type="date" value="{{ old('date_of_birth') }}" class="form-control" id="date_of_birth" value="{{ old('date_of_birth') }}" >
-                        </div>
+                     <div class="form-group">
+                        <label for="date_of_birth">Date of Birth</label>
+                        <input type="date" value="{{ old('date_of_birth') }}" class="form-control" id="date_of_birth" name="date_of_birth">
+                     </div>
+
                      </div>
                      <div class="col-lg-offset-0 col-lg-3 col-xs-12 col-sm-6">
                         <div class="form-group">
@@ -110,13 +111,12 @@
                         <div class="form-group">
                         <label for="qualification" class="select">Qualification <span class="red-col">*</span></label>
                         <select name="qualification" class="form-control" required="true" id="qualification">
-                              <option value="5">5th</option>
-                              <option value="8">8th</option>
-                              <option value="10">10th</option>
-                              <option value="11">11th</option>
-                              <option value="12">12th</option>
-                              <option value="others">others</option>
+                           @foreach($fees as $fee)
+                              <option value="{{ $fee->id }}" @if(old('qualification') == $fee->id) selected @endif>{{ $fee->class }}</option>
+                           @endforeach
+                           <option value="others" @if(old('qualification') == 'others') selected @endif>others</option>
                         </select>
+
                         </div>
                      </div>
 

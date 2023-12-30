@@ -40,7 +40,9 @@ class RazorpayController extends Controller{
 
                 $candidate->update(['payment_status' => 1]);
                 
-                return redirect()->route('fee.index')->with('success', 'Submitted successfully.');
+                // return redirect()->route('fee.index')->with('success', 'Submitted successfully.');
+                return redirect()->route('payment.fetch',Crypt::encryptString($candidate->id))
+                        ->with('success','Payment has been successfully.');
             } catch (GatewayTimeoutError $e) {
                 return redirect()->back()->withInput()->with('error', 'Gateway timeout: The payment could not be captured due to a timeout. Please try again.');
             } catch (BadRequestError $e) {
@@ -51,6 +53,7 @@ class RazorpayController extends Controller{
         }
     
         return redirect()->route('fee.index')->with('error', 'Invalid payment details.');
+
     }
 
 }

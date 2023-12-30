@@ -94,7 +94,12 @@ class FormController extends Controller
 
     public function getFeeAmount($feeId){
 
-        $feeDetail  =   Fee::find($feeId);
+        if($feeId == 'others'){
+            $feeDetail  =   Fee::where('class','others')->first();
+        }else{
+            $feeDetail  =   Fee::find($feeId);
+        }
+        
         return $feeDetail->amount;
     }
 

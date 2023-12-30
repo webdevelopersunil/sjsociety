@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Form;
+use App\Models\Fee;
 
 class CandidateController extends Controller
 {
@@ -17,7 +18,7 @@ class CandidateController extends Controller
     public function view(Request $request){
         
         $candidate  =   Form::find($request->id);
-        
-        return view('candidate_view', compact('candidate'));
+        $fee        =   Fee::find($candidate->qualification);
+        return view('candidate_view', compact('candidate','fee'));
     }
 }

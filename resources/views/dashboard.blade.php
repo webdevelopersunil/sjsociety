@@ -50,13 +50,14 @@
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Father/Husband Name</th>
-                                    <th>Mother Name</th>
+                                    <!-- <th>Mother Name</th> -->
                                     <th>WhatsApp Number</th>
                                     <th>Aadhar Number</th>
                                     <th>Email</th>
                                     <th>Mobile Number</th>
                                     <!-- <th>Second Mobile Number</th> -->
                                     <th>Qualification</th>
+                                    <th>Payment Status</th>
                                     <th>Gender</th>
                                     <!-- <th>Nationality</th>
                                     <th>Father Occupation</th>
@@ -78,13 +79,20 @@
                                     <td>{{ $candidate->first_name }}</td>
                                     <td>{{ $candidate->last_name }}</td>
                                     <td>{{ $candidate->father_husband_name }}</td>
-                                    <td>{{ $candidate->mother_name }}</td>
+                                    <!-- <td>{{ $candidate->mother_name }}</td> -->
                                     <td>{{ $candidate->whatsapp_number }}</td>
                                     <td>{{ $candidate->aadhar_number }}</td>
                                     <td>{{ $candidate->email }}</td>
                                     <td>{{ $candidate->mobile_number }}</td>
                                     <!-- <td>{{ $candidate->second_mobile_number }}</td> -->
                                     <td>{{ $candidate->qualification }}</td>
+                                    
+                                        @if($candidate->payment_status == 1)
+                                            <td style=" color:green; font-weight:600; " >{{ __('Paid') }}</td>
+                                        @else
+                                            <td style=" color:red; font-weight:600; " >{{ __('Un-Paid') }}</td>
+                                        @endif
+                                
                                     <td>{{ $candidate->gender }}</td>
                                     <!-- <td>{{ $candidate->nationality }}</td>
                                     <td>{{ $candidate->father_occupation }}</td>

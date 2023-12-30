@@ -25,15 +25,26 @@
                             First Name : <span>{{ ucfirst($candidate->first_name) }}</span>
                     </h2> -->
 
-                    <div class="invoice-box">
+                    <div class="invoice-box" id="invoice-box">
                         <table cellpadding="0" cellspacing="0">
                             <tr class="top">
                                 <td colspan="2">
                                     <table>
                                         <tr>
+                                            <td class="font-semibold" style="text-align:center;"  >
+                                                Super Champ Competition: <span style="color:red" >Shikshit Jiavn Surakshit Jiavn Society, Hisar(Reg No.01676)</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="top">
+                                <td colspan="2">
+                                    <table>
+                                        <tr>
                                             <td class="font-semibold" style="text-align:right;"  >
-                                                Invoice ID#: <span style="color:red" >3645456124</span><br />
-                                                Created At: <span style="color:red" >January 1, 2023</span><br />
+                                                <!-- Invoice ID#: <span style="color:red" >3645456124</span><br /> -->
+                                                Created At: <span style="color:red" >{{ $candidate->created_at }}</span><br />
                                             </td>
                                         </tr>
                                     </table>
@@ -72,95 +83,93 @@
                             </tr>
 
                             <tr class="details">
-                                <td>Father/Husband Name</td>
+                                <td class="fontWeight" >Father/Husband Name</td>
                                 <td>
                                 {{ isset($candidate->father_husband_name) && !empty($candidate->father_husband_name) ? ucfirst($candidate->father_husband_name) : '<span style="color: red;">----</span>' }}
                                 </td>
                             </tr>
                             <tr class="details">
-                                <td>Mother Name</td>
+                                <td class="fontWeight" >Mother Name</td>
                                 <td>
                                 {{ isset($candidate->mother_name) && !empty($candidate->mother_name) ? ucfirst($candidate->mother_name) : '<span style="color: red;">----</span>' }}
                                 </td>
                             </tr>
                             <tr class="details">
-                                <td>Whatsapp Number</td>
+                                <td class="fontWeight" >Whatsapp Number</td>
                                 <td>
                                 {{ isset($candidate->whatsapp_number) && !empty($candidate->whatsapp_number) ? ucfirst($candidate->whatsapp_number) : '<span style="color: red;">----</span>' }}
                                 </td>
                             </tr>
                             <tr class="details">
-                                <td>Aadhar Number</td>
+                                <td class="fontWeight" >Aadhar Number</td>
                                 <td>
                                 {{ isset($candidate->aadhar_number) && !empty($candidate->aadhar_number) ? ucfirst($candidate->aadhar_number) : '<span style="color: red;">----</span>' }}
                                 </td>
                             </tr>
                             <tr class="details">
-                                <td>Second Mobile Number</td>
+                                <td class="fontWeight" >Second Mobile Number</td>
                                 <td>
                                 {{ isset($candidate->second_mobile_number) && !empty($candidate->second_mobile_number) ? ucfirst($candidate->second_mobile_number) : '<span style="color: red;">----</span>' }}
                                 </td>
                             </tr>
                             
                             <tr class="details">
-                                <td>Qualification</td>
+                                <td class="fontWeight" >Qualification</td>
                                 <td>
                                 {{ isset($candidate->qualification) && !empty($candidate->qualification) ? ucfirst($candidate->qualification) : '<span style="color: red;">----</span>' }}
                                 </td>
                             </tr>
                             <tr class="details">
-                                <td>Gender</td>
+                                <td class="fontWeight" >Gender</td>
                                 <td>
                                 {{ isset($candidate->gender) && !empty($candidate->gender) ? ucfirst($candidate->second_mobile_number) : '<span style="color: red;">----</span>' }}
                                 </td>
                             </tr>
                             <tr class="details">
-                                <td>Nationality</td>
+                                <td class="fontWeight" >Nationality</td>
                                 <td style="color: black;" >
                                 {{ isset($candidate->nationality) && !empty($candidate->nationality) ? ucfirst($candidate->nationality) : '<span style="color: red;">----</span>' }}
                                 </td>
                             </tr>
                             <tr class="details">
-                                <td>father_occupation</td>
+                                <td class="fontWeight" >father_occupation</td>
                                 <td>
                                 {{ isset($candidate->father_occupation) && !empty($candidate->father_occupation) ? ucfirst($candidate->father_occupation) : '<span style="color: red;">----</span>' }}
                                 </td>
                             </tr>
                             <tr class="details">
-                                <td>Post Office</td>
+                                <td class="fontWeight" >Post Office</td>
                                 <td>
                                 {{ isset($candidate->post_office) && !empty($candidate->post_office) ? ucfirst($candidate->post_office) : '<span style="color: red;">----</span>' }}
                                 </td>
                             </tr>
 
                             <tr class="heading">
-                                <td>Item</td>
+                                <td class="fontWeight" >Payment Status</td>
 
-                                <td>Price</td>
+                                @if($candidate->payment_status == 1)
+                                    <td style="color:green; font-size:20px;" >Paid</td>
+                                @else
+                                    <td style="color:red; font-size:20px;" >Un Paid</td>
+                                @endif
                             </tr>
 
                             <tr class="item">
-                                <td>Website design</td>
+                                <td class="fontWeight" >Qualification</td>
 
-                                <td>$300.00</td>
+                                <td>{{ $fee->class }}</td>
                             </tr>
 
                             <tr class="item">
-                                <td>Hosting (3 months)</td>
+                                <td class="fontWeight" >Fee ( &#8377; )</td>
 
-                                <td>$75.00</td>
-                            </tr>
-
-                            <tr class="item last">
-                                <td>Domain name (1 year)</td>
-
-                                <td>$10.00</td>
+                                <td>{{ number_format($fee->amount, 2) }}</td>
                             </tr>
 
                             <tr class="total">
                                 <td></td>
 
-                                <td>Total: $385.00</td>
+                                <td>Total: &#8377;{{ number_format($fee->amount, 2) }}</td>
                             </tr>
                         </table>
                     </div>

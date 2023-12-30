@@ -19,8 +19,10 @@ use App\Http\Controllers\RazorpayController;
 |
 */
 
-Route::get('/', function () { return view('welcome');
-})->name('home');
+// Route::get('/', function () { return view('welcome');
+// })->name('home');
+
+Route::get('/',[FrontendController::class,'home'])->name('home');
 
 Route::get('product',[RazorpayController::class,'index']);
 Route::post('razorpay-payment/{uid}',[RazorpayController::class,'store'])->name('razorpay.payment.store');
