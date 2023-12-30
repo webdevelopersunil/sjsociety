@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\Form;
 
 class FrontendController extends Controller{
 
@@ -15,6 +17,22 @@ class FrontendController extends Controller{
     public function contactUs(){
 
         return view('contact_us');
+    }
+
+    public function getPaymentStatus(Request $request){
+        $phone  =   $request->phone;
+        $email  =   $request->email;
+
+        $candidate  =   Form::where([ 'email'=>$request->email, 'mobile_number'=>$request->phone ])
+                        ->orWhere([ 'email'=>$request->email, 'mobile_number'=>$request->second_mobile_number ])->first();
+        
+        if(!empty($candidate)){
+            return redirect()->route('payment.fetch',Crypt::encryptString($candidate->id))
+            ->with('success','Found successfully.');
+        }else{
+            $candidate  =   null;
+            return redirect()->route('payment.status')->with('error','No Record Found, Please use another details or try register with another details.');
+        }
     }
 
     public function paymentData(Request $request): RedirectResponse{

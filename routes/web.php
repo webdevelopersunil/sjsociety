@@ -23,9 +23,10 @@ Route::get('/', function () { return view('welcome');
 })->name('home');
 
 Route::get('product',[RazorpayController::class,'index']);
-Route::post('razorpay-payment',[RazorpayController::class,'store'])->name('razorpay.payment.store');
+Route::post('razorpay-payment/{uid}',[RazorpayController::class,'store'])->name('razorpay.payment.store');
 
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact.us');
+Route::post('/get/payment/status', [FrontendController::class, 'getPaymentStatus'])->name('get.payment.status');
 Route::get('/payment/status', [FrontendController::class, 'paymentStatus'])->name('payment.status');
 Route::post('/payment/data', [FrontendController::class, 'paymentData'])->name('payment.data');
 Route::post('/contact-us', [FrontendController::class, 'save'])->name('contact.save');
@@ -49,5 +50,7 @@ Route::middleware('auth')->group(function () {
 // Route::get('/candidate', [CandidateController::class, 'index'])->name('candidate.index');
 
 Route::post('/form/add', [FormController::class, 'store'])->name('form.add');
+Route::get('/payment/{uuid}', [FormController::class, 'paymentFetch'])->name('payment.fetch');
+Route::get('get-invoice/{uid}',[FormController::class,'getInvoice'])->name('get.invoice');
 
 require __DIR__.'/auth.php';

@@ -17,6 +17,47 @@
         table { width: 100%; border-collapse: collapse; margin: 20px 0; }
         th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
         th { background-color: #f2f2f2; }
+
+        /* styles.css */
+
+      .razorpay-payment-button {
+         /* Add your preferred styles here */
+         display: inline-block;
+         padding: 10px 20px;
+         font-size: 16px;
+         font-weight: bold;
+         text-align: center;
+         text-decoration: none;
+         cursor: pointer;
+         background-color: #4caf50;
+         color: #ffffff;
+         border: none;
+         border-radius: 5px;
+      }
+
+      .razorpay-payment-button:hover {
+         background-color: #45a049;
+      }
+
+      /* Add these styles to your existing CSS file or create a new one */
+.view-button {
+    display: inline-block;
+    padding: 7px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #3498db; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none;
+    border-radius: 5px;
+}
+
+.view-button:hover {
+    background-color: #2980b9; /* Button background color on hover */
+}
+
+
       </style>
    </head>
    <body class="form-bg" >
@@ -33,6 +74,7 @@
          </div>
          <!-- /.container-fluid -->
       </nav>
+
       <div class="container ">
         <div class="col-lg-12 col-md-12 ">
             
@@ -51,7 +93,14 @@
                     {{ session('success') }}
                 </div>
                @endif
-               <form method="POST" action="{{ route('payment.status') }}" >
+
+               <div class="container-fluid">
+                  <br>
+                  <h3>Find your form detail, in case of failed payment or download your payment Invoice.</h3>
+                  <br>
+               </div>
+
+               <form method="POST" action="{{ route('get.payment.status') }}" >
                   @csrf
                   <div class="row">
                      <div class="col-lg-6 col-xs-12 col-sm-6">
@@ -81,31 +130,69 @@
 
          <div class="container-fluid">
                 <h1>Candidate Detail's</h1>
-                <!-- <h2 class="highlight" >Shikshit Jiavn Surakshit Jiavn Society, Hisar <span>(Reg No.01676)</span> </h2> -->
-                
                 <table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Payment Status</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Sunil Kumar</td>
-            <td>sunil@gmail.com</td>
-            <td>78787878</td>
-            <td>Paid</td>
-            <td><a href="">View</a></td>
-        </tr>
-        <!-- Add more rows as needed -->
-    </tbody>
-</table>
-
-            
+                  <thead>
+                     <tr>
+                           <th>Name</th>
+                           <th>Email</th>
+                           <th>Phone</th>
+                           <th>Qualification</th>
+                           <th>Payment (INR)</th>
+                           <th>Payment Status</th>
+                           <th>Action</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     @if(isset($candidate) && !empty($candidate))
+                        <tr>
+                              <td>{{ $candidate->first_name }} {{ $candidate->last_name }}</td>
+                              <td>{{ $candidate->email }}</td>
+                              <td>{{ $candidate->mobile_number }}</td>
+                              <td>{{ $candidate->qualification }}</td>
+                              <td>{{ $candidate->payment }}</td>
+                              @if( $candidate->payment_status == 1 )
+                                 <td style="color:green; font-size: 16px;" >  {{ __('Paid') }}</td>
+                              @else
+                                 <td style="color:red; font-size: 16px;" >  {{ __('Un-Paid') }}</td>
+                              @endif
+                              <td><a href="{{ route('get.invoice', $uid) }}" class="view-button">View/Download PDF</a></td>
+                        </tr>
+                     @else
+                        <tr>
+                              <td>----</td>
+                              <td>----</td>
+                              <td>----</td>
+                              <td>----</td>
+                              <td>----</td>
+                              <td>----</td>
+                              <td>----</td>
+                              
+                        </tr>
+                     @endif
+                     <!-- Add more rows as needed -->
+                  </tbody>
+               </table>
+               @if( isset($candidate->payment_status) )
+                  <div class="card card-default">
+                     <div class="card-body text-center">
+                        <form id="paymentForm" action="{{ route('razorpay.payment.store',$uid) }}" method="POST" >
+                              @csrf
+                              <script src="https://checkout.razorpay.com/v1/checkout.js"
+                                    data-key="{{ env('RAZORPAY_KEY') }}"
+                                    data-amount="{{$payment}}"
+                                    data-buttontext="Pay {{$payment/100}} INR"
+                                    data-name="Shikshit Jiavn Surakshit Jiavn Society"
+                                    data-description="Super Champ Competition"
+                                    data-image="https://th.bing.com/th/id/OIP.jVwkiQzBJ63-75jWyXVE_AHaGe?rs=1&pid=ImgDetMain"
+                                    data-prefill.name="{{$candidate->first_name}}  {{$candidate->last_name}}"
+                                    data-prefill.email="{{$candidate->email}}"
+                                    data-prefill.phone="{{$candidate->phone}}"
+                                    data-theme.color="#ff7529">
+                              </script>
+                        </form>
+                     </div>
+                  </div>
+               @endif      
          </div>
 
          <br />
@@ -126,3 +213,9 @@
       
    </body>
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        
+    });
+</script>

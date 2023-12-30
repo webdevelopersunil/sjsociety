@@ -239,15 +239,15 @@
             var qualificationSelect = document.getElementById('qualification');
             var otherEducationInput = document.getElementById('other_education');
             qualificationSelect.addEventListener('change', function(){
-                  if (qualificationSelect.value === 'others'){
+                  if(qualificationSelect.value === 'others'){
                      otherEducationInput.disabled = false;
-                  } else {
+                  }else{
                      otherEducationInput.disabled = true;
                      otherEducationInput.value ="";
                   }
             });
          });
+         
       </script>
-
    </body>
 </html>

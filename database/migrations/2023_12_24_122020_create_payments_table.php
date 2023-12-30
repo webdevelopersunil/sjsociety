@@ -18,8 +18,11 @@ return new class extends Migration
             $table->string('currency');
             $table->string('user_email');
             $table->string('amount');
+            $table->unsignedBigInteger('user_id');
             $table->longText('json_response');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('form_data');
         });
     }
 

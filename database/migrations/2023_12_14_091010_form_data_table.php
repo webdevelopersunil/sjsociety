@@ -33,6 +33,8 @@ return new class extends Migration
             $table->string('district')->nullable();
             $table->string('pin_code')->nullable();
             $table->string('state')->nullable();
+            $table->enum('payment_status',[1,0])->default(0);
+            $table->float('payment');
             $table->timestamps();
         });
     }

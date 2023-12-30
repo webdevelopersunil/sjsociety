@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Form;
+use App\Models\Fee;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StorePostRequest;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Crypt;
 
 class FormController extends Controller
 {
@@ -51,7 +53,7 @@ class FormController extends Controller
         }
 
         try {
-
+            
             $form = new Form();
             $form->first_name           =   $request->first_name;
             $form->last_name            =   $request->last_name;
@@ -72,9 +74,10 @@ class FormController extends Controller
             $form->district             =   $request->district;
             $form->pin_code             =   $request->pin_code;
             $form->state                =   $request->state;
+            $form->payment              =   $this->getFeeAmount($request->qualification);
             $form->save();
-        
-            return redirect()->route('home')->with('success','Submitted successfully.');
+            
+            return redirect()->route('payment.fetch',Crypt::encryptString($form->id))->with('success','Submitted successfully.');
 
         } catch (QueryException $e) {
             
@@ -87,6 +90,39 @@ class FormController extends Controller
             return redirect()->back()->withInput()->with('error', 'An error occurred: ' . $e->getMessage());
         }
         
+    }
+
+    public function getFeeAmount($feeId){
+
+        $feeDetail  =   Fee::find($feeId);
+        return $feeDetail->amount;
+    }
+
+    public function paymentFetch(Request $request){
+
+        $uid = Crypt::decryptString($request->uuid);
+        $candidate  =   Form::where('id',$uid)->first();
+
+        if($candidate){
+            $payment    =   $candidate->payment * 100;
+            $fee        =   Fee::find($candidate->qualification);
+            $uid        =   Crypt::encryptString($candidate->id);
+            
+            return view('payment_status', compact('candidate','payment','uid'))->with('success','Submitted successfully.');
+        }else{
+            return redirect()->route('home');
+        }
+
+    }
+
+    public function getInvoice(Request $request){
+        
+        $encUid     =   $request->uid;
+        $uid        =   Crypt::decryptString($request->uid);
+        $candidate  =   Form::find($uid);
+        $fee        =   Fee::find($candidate->qualification);
+
+        return view('pdf', compact('candidate','encUid','fee'));
     }
 
     /**

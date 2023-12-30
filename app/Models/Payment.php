@@ -17,7 +17,8 @@ class Payment extends Model {
         'currency',
         'user_email',
         'amount',
-        'json_response'
+        'json_response',
+        'user_id'
     ];
 
     protected $guarded = ['id'];

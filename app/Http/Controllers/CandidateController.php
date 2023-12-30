@@ -17,7 +17,7 @@ class CandidateController extends Controller
     public function view(Request $request){
         
         $candidate  =   Form::find($request->id);
-        // dd($candidate);
+        
         return view('candidate_view', compact('candidate'));
     }
 }

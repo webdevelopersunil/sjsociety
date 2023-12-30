@@ -1,8 +1,4 @@
 <div class="card card-default">
-    <div class="card-header">
-        Laravel - Razorpay Payment Gateway Integration
-    </div>
-
     @if(session('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
@@ -15,8 +11,8 @@
     @endif
 
     <div class="card-body text-center">
-        <form action="{{ route('razorpay.payment.store') }}" method="POST" >
-            @csrf 
+        <form action="{{ route('razorpay.payment.store',$uid) }}" method="POST" >
+            @csrf
             <script src="https://checkout.razorpay.com/v1/checkout.js"
                     data-key="{{ env('RAZORPAY_KEY') }}"
                     data-amount="10000"

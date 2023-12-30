@@ -37,7 +37,9 @@ class Form extends Model
         'post_office',
         'district',
         'pin_code',
-        'state'
+        'state',
+        'payment_status',
+        'payment'
     ];
 
     /**
