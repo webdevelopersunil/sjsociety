@@ -61,13 +61,26 @@
                 You can also email us. Click here to reveal email address
                    <a href="{{ route('home') }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Super Champ Competition</a>
             </p>
+            
+            <p class="leading-relaxed text-xl text-gray-900">
+                <a href="#" >Mob:</a>7988223255, 9050851556
+            </p>
+            
+        
+            <p> <a href="#">Email : sjsjsociety@gmail.com </a> </p>
+            
+            <p class="leading-relaxed text-xl text-gray-900">
+                <a href="#" >Address :</a> Shikshit Jivan Surkshit Jivan Society Bure
+                <br>
+                Haryana, ( 125001 )
+                <br
+            Email : 'sjsjsociety@gmail.com'
+            </p>
+            
             <p class="leading-relaxed text-xl text-gray-900 mt-8">
                 <a href="{{route('terms.policies')}}">Terms & policies</a>  /  <a href="{{route('home')}}">Back To Form</a>
             </p>
-            <span class="inline-flex mt-6 justify-center sm:justify-start">
-             
-               
-            </span>
+            
         </div>
         <div class="md:w-2/3 w-full mt-10 md:mt-0 md:pl-28">
 
