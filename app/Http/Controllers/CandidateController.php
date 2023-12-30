@@ -19,6 +19,7 @@ class CandidateController extends Controller
         
         $candidate  =   Form::find($request->id);
         $fee        =   Fee::find($candidate->qualification);
+        
         return view('candidate_view', compact('candidate','fee'));
     }
 }

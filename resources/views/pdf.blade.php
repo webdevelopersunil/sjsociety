@@ -177,19 +177,19 @@
                             <tr class="item">
                                 <td class="fontWeight" >Qualification</td>
 
-                                <td>{{ $fee->class }}</td>
+                                <td>{{ $candidate->qualification }}</td>
                             </tr>
 
                             <tr class="item">
                                 <td class="fontWeight" >Fee ( &#8377; )</td>
 
-                                <td>{{ number_format($fee->amount, 2) }}</td>
+                                <td>{{ number_format($candidate->payment, 2) }}</td>
                             </tr>
 
                             <tr class="total">
                                 <td></td>
 
-                                <td>Total: &#8377;{{ number_format($fee->amount, 2) }}</td>
+                                <td>Total: &#8377;{{ number_format($candidate->payment, 2) }}</td>
                             </tr>
                         </table>
                     </div>
