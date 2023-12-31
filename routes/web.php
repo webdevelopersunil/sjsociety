@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard',[CandidateController::class, 'index'])->middleware(['verified'])->name('dashboard');
     Route::get('/candidate/view/{id}', [CandidateController::class, 'view'])->name('candidate.view');
+    Route::get('/candidate/delete/{id}', [CandidateController::class, 'delete'])->name('candidate.delete');
+    Route::post('/candidate/find', [CandidateController::class, 'find'])->name('candidate.find');
 });
 
 // Route::get('/candidate', [CandidateController::class, 'index'])->name('candidate.index');

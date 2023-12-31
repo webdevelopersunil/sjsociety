@@ -7,7 +7,6 @@
             margin-bottom: 20px;
             border-collapse: collapse;
         }
-
         .data-table th, .data-table td {
             border: 1px solid #ddd;
             padding: 8px;
@@ -28,6 +27,59 @@
             border: 2px solid white;
             background: yellow;
         }
+        .notification-container {
+        width: 300px;
+        margin: 20px auto;
+    }
+
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+
+
+
+    .search-list {
+        text-align: right;
+    }
+
+    .search-list form {
+        display: inline-block;
+    }
+
+    .search-list input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 5px;
+    }
+
+    .search-list input[type="submit"] {
+        padding: 8px 12px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .search-list input[type="submit"]:hover {
+        background-color: #45a049;
+    }
     </style>
 
 <x-app-layout>
@@ -41,7 +93,40 @@
         <div class="max-w-12xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("Candidates List!") }}
+
+                        <div class="notification-container">
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="search-list">
+                            <form action="{{ route('candidate.find') }}" method="post">
+                                @csrf
+                                <input type="number" name="aadhar_number" placeholder="Aadhar Number">
+                                <input type="number" name="phone" placeholder="Mobile Number">
+                                <input type="email" name="email" placeholder="Email">
+                                <select name="payment_status" >
+                                    <option selected disabled >Payment Status</option>
+                                    <option value="1">Paid</option>
+                                    <option value="0">Un-Paid</option>
+                                </select>
+                                <select name="qualification" >
+                                    <option selected disabled >Qualification</option>
+                                    @foreach($fee as $fe)
+                                        <option value="{{ $fe->id }}">{{ $fe->class }}</option>
+                                    @endforeach
+                                </select>
+                                <input type="submit" value="Search">
+                            </form>
+                        </div>
 
                         <table class="table table-bordered data-table">
                             <thead>
@@ -101,7 +186,10 @@
                                     <td>{{ $candidate->district }}</td>
                                     <td>{{ $candidate->pin_code }}</td>
                                     <td>{{ $candidate->state }}</td> -->
-                                    <td><a class="view-detail" class="view-btn" href="{{ route('candidate.view',$candidate->id) }}">View</a></td>
+                                    <td>
+                                        <a class="view-detail" class="view-btn" href="{{ route('candidate.view',$candidate->id) }}">View</a> 
+                                        | <a class="view-detail" class="view-btn" href="{{ route('candidate.delete',$candidate->id) }}">Delete</a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             @endif
