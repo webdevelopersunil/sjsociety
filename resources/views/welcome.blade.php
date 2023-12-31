@@ -111,12 +111,12 @@
                         <div class="form-group">
                         <label for="qualification" class="select">Qualification <span class="red-col">*</span></label>
                         <select name="qualification" class="form-control" required="true" id="qualification">
+                              <option disabled  selected >Select Qualification</option>
                            @foreach($fees as $fee)
                               <option value="{{ $fee->id }}" @if(old('qualification') == $fee->id) selected @endif>{{ $fee->class }}</option>
                            @endforeach
                            <option value="others" @if(old('qualification') == 'others') selected @endif>others</option>
                         </select>
-
                         </div>
                      </div>
 
