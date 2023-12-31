@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('form_data', function (Blueprint $table) {
             // Remove unique constraint from mobile_number
-            $table->string('mobile_number')->unique(false)->change();
+            $table->string('mobile_number')->unique(false)->nullable()->change();
             
             // Set aadhar_number as required and unique
             $table->string('aadhar_number')->nullable(false)->unique()->change();
@@ -27,7 +27,7 @@ return new class extends Migration
     {
         Schema::table('form_data', function (Blueprint $table) {
             // Reverse the changes in the down method if needed
-            $table->string('mobile_number')->unique()->change();
+            $table->string('mobile_number')->unique()->nullable(false)->change();
             $table->string('aadhar_number')->nullable()->unique(false)->change();
         });
     }
