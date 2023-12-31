@@ -35,13 +35,14 @@ class FormController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request): RedirectResponse{
-
+        // |unique:form_data
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email|unique:form_data',
+            'email' => 'required|email',
             'first_name' => 'required',
-            'whatsapp_number' => 'nullable|numeric|digits:10',
-            'mobile_number' => 'required|numeric|digits:10|unique:form_data',
+            'whatsapp_number' => 'required|numeric|digits:10',
+            'mobile_number' => 'required|numeric|digits:10',
             'second_mobile_number' => 'nullable|numeric|digits:10',
+            'aadhar_number' => 'required|numeric|digits:12',
             'gender' => 'required',
             'village_address' => 'required',
         ]);
